@@ -3,39 +3,38 @@
     <div class="container">
       <h1 class="blue-title">Последние анкеты</h1>
       <div class="cards">
-        <div
-          class="card"
-          v-for="card in cards"
-          :key="card.id"
-          @click="goToDetails(card.id)"
-        >
-          <div class="card-content">
-            <img :src="card.images[0].url" :alt="card.name" />
-          </div>
-          <div class="card-info">
-            <div class="card-info-body">
-              <h3 class="card-title">
-                <span> {{ card.name }} </span>
-                {{ card.age }} {{ getCorrectTextAge(card.age) }}
-              </h3>
-              <div class="card-actions">
-                <button
-                  @click.stop="() => console.log('dislike')"
-                  class="button"
-                >
-                  <img src="../assets/dislike.svg" alt="dislike" />
-                </button>
-                <button
-                  @click.stop="() => console.log('message')"
-                  class="button"
-                >
-                  <img src="../assets/message.svg" alt="message" />
-                </button>
-              </div>
+        <transition-group name="card" tag="div" appear>
+          <div
+            class="card"
+            v-for="card in cards"
+            :key="card.id"
+            @click="goToDetails(card.id)"
+          >
+            <div class="card-content">
+              <img :src="card.images[0].url" :alt="card.name" />
             </div>
-            <p>{{ card.country }}</p>
+            <div class="card-info">
+              <div class="card-info-body">
+                <h3 class="card-title">
+                  <span> {{ card.name }} </span>
+                  {{ card.age }} {{ getCorrectTextAge(card.age) }}
+                </h3>
+                <div class="card-actions">
+                  <button @click.stop="dislikeCard(card.id)" class="button">
+                    <img src="../assets/dislike.svg" alt="dislike" />
+                  </button>
+                  <button
+                    @click.stop="() => console.log('message')"
+                    class="button"
+                  >
+                    <img src="../assets/message.svg" alt="message" />
+                  </button>
+                </div>
+              </div>
+              <p>{{ card.country }}</p>
+            </div>
           </div>
-        </div>
+        </transition-group>
       </div>
     </div>
   </main-layout>
@@ -44,11 +43,12 @@
 <script>
 import { useRouter } from "vue-router";
 import { MainLayout } from "../components/layout";
+import { ref } from "vue";
 export default {
   components: { MainLayout },
   setup() {
     const router = useRouter();
-    const cards = [
+    const cards = ref([
       {
         id: 1,
         name: "Кристина",
@@ -77,10 +77,73 @@ export default {
           },
         ],
       },
-    ];
+      {
+        id: 3,
+        name: "Кристина",
+        age: 33,
+        country: "Россия",
+        images: [
+          {
+            url: "https://images.unsplash.com/photo-1495385794356-15371f348c31?q=80&w=3370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          },
+          {
+            url: "https://images.unsplash.com/photo-1485231183945-fffde7cc051e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D",
+          },
+        ],
+      },
+      {
+        id: 4,
+        name: "Василиса",
+        age: 33,
+        country: "Россия",
+        images: [
+          {
+            url: "https://images.unsplash.com/photo-1578298245398-7130884db6f5?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          },
+          {
+            url: "https://images.unsplash.com/photo-1485231183945-fffde7cc051e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D",
+          },
+        ],
+      },
+      {
+        id: 5,
+        name: "Кристина",
+        age: 30,
+        country: "Россия",
+        images: [
+          {
+            url: "https://images.unsplash.com/photo-1495385794356-15371f348c31?q=80&w=3370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          },
+          {
+            url: "https://images.unsplash.com/photo-1485231183945-fffde7cc051e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D",
+          },
+        ],
+      },
+      {
+        id: 6,
+        name: "Василиса",
+        age: 29,
+        country: "Россия",
+        images: [
+          {
+            url: "https://images.unsplash.com/photo-1578298245398-7130884db6f5?q=80&w=3387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          },
+          {
+            url: "https://images.unsplash.com/photo-1485231183945-fffde7cc051e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D",
+          },
+        ],
+      },
+    ]);
 
     const goToDetails = (id) => {
       router.push(`/card/${id}`);
+    };
+
+    const dislikeCard = (id) => {
+      const cardIdx = cards.value.findIndex((card) => card.id === id);
+      if (cardIdx !== -1) {
+        cards.value.splice(cardIdx, 1);
+      }
     };
 
     const getCorrectTextAge = (age) => {
@@ -101,12 +164,28 @@ export default {
       return form;
     };
 
-    return { cards, goToDetails, getCorrectTextAge };
+    return { cards, goToDetails, getCorrectTextAge, dislikeCard };
   },
 };
 </script>
 
 <style scoped>
+.card-enter,
+.card-leave-to {
+  opacity: 0;
+}
+
+.card-enter {
+  transform: translateY(30%);
+}
+
+.card-leave-to {
+  transform: translateX(300%);
+}
+
+.card-leave-active {
+  position: absolute;
+}
 .button {
   border: none;
   background: none;
@@ -128,6 +207,11 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: relative;
+}
+
+.card {
+  transition: all 0.2s;
 }
 
 .card-content img {
