@@ -120,6 +120,7 @@ export default {
   padding-left: 16px;
   padding-right: 16px;
   margin-top: 20px;
+  padding-bottom: 20px;
 }
 
 .cards {
@@ -132,6 +133,7 @@ export default {
 .card-content img {
   width: 100%;
   object-fit: cover;
+  background: lightgray;
 }
 
 .card-info {

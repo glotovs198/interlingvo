@@ -93,6 +93,7 @@ export default {
   margin-top: 20px;
   padding-left: 16px;
   padding-right: 16px;
+  padding-bottom: 20px;
 }
 
 .title {
@@ -109,6 +110,7 @@ export default {
   width: 104px;
   height: 104px;
   object-fit: cover;
+  background: lightgray;
 }
 
 .social-info {

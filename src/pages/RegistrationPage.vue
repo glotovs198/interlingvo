@@ -46,6 +46,7 @@ export default {
   padding-left: 16px;
   padding-right: 16px;
   margin-top: 20px;
+  padding-bottom: 20px;
 }
 
 .gender-box {

@@ -111,4 +111,10 @@ export default {
   align-items: center;
   gap: 20px;
 }
+
+@media (max-width: 370px) {
+  .logo-title {
+    font-size: 22px;
+  }
+}
 </style>
