@@ -93,7 +93,7 @@ export default {
 
 <style scoped>
 .container {
-  max-width: 370px;
+  max-width: 400px;
   width: 100%;
   z-index: 1;
 }
@@ -106,9 +106,17 @@ export default {
   transition: all 0.2s ease;
 }
 
+.heart-item p {
+  font-size: 14px;
+}
+
 .heart-item:hover {
   opacity: 0.5;
   transform: scale(0.8);
+}
+
+.group:not(:first-child) {
+  margin-top: 25px;
 }
 
 .group {
@@ -118,38 +126,64 @@ export default {
 }
 
 .group.first {
-  padding-left: 84px;
+  padding-left: 73px;
   padding-right: 73px;
 }
 
 .group.second {
-  margin-top: 25px;
-  padding-left: 27px;
-  padding-right: 27px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .group.third {
-  margin-top: 25px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .group.fourth {
-  margin-top: 20px;
-  padding-left: 29px;
-  padding-right: 29px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .group.fifth {
-  margin-top: 25px;
-  padding-left: 35px;
-  padding-right: 35px;
+  padding-left: 45px;
+  padding-right: 45px;
 }
 .group.sixth {
-  padding-left: 102px;
-  padding-right: 102px;
-  margin-top: 25px;
+  justify-content: center;
+  gap: 70px;
 }
 .group.last {
   justify-content: center;
   gap: 22px;
-  margin-top: 25px;
+}
+
+@media (max-width: 405px) {
+  .group:not(:first-child) {
+    margin-top: 15px;
+  }
+  .heart-item p {
+    font-size: 12px;
+  }
+
+  .heart-item img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 360px) {
+  .group.sixth {
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .heart-item p {
+    font-size: 13px;
+  }
+
+  .heart-item img {
+    width: 24px;
+    height: 24px;
+  }
 }
 </style>

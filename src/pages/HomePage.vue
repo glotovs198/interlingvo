@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="container">
-      <img class="map" src="../assets/map.svg" alt="map" />
+      <img class="map" src="../assets/world-map.svg" alt="map" />
       <language-heart />
     </div>
   </div>
@@ -22,14 +22,18 @@ export default {
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   background: #bccbd5;
+  overflow-y: auto;
 }
 
 .container {
   display: flex;
+  max-width: 400px;
   width: 100%;
   flex-direction: column;
+  position: relative;
   align-items: center;
 }
 
