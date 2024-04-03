@@ -42,7 +42,7 @@
           </label>
           <field name="resetPassEmail" id="reset-pass-email" type="text" />
         </div>
-        <button>Далее</button>
+        <button class="btn">Далее</button>
       </validation-form>
     </div>
   </main-layout>

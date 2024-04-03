@@ -214,7 +214,7 @@ export default {
 }
 
 .card-content img {
-  width: 100%;
+  width: 200px;
   height: 200px;
   object-fit: cover;
   background: lightgray;
@@ -252,7 +252,11 @@ export default {
     width: 100%;
   }
 
-  .card img {
+  .card-content img {
+    width: 100%;
+  }
+
+  .card-content img {
     height: auto;
   }
 }

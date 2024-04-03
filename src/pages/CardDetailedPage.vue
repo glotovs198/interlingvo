@@ -17,10 +17,10 @@
         <p>статус: служащий</p>
       </div>
       <div class="social-actions">
-        <button @click="() => router.push('/send-message')">
+        <button class="btn" @click="() => router.push('/send-message')">
           Отправить Jenni_ сообщение
         </button>
-        <button @click="() => router.push('/send-message')">
+        <button class="btn" @click="() => router.push('/send-message')">
           Отправить Jenni_ открытку
         </button>
       </div>
@@ -89,6 +89,7 @@ export default {
 .v-leave-to {
   opacity: 0;
 }
+
 .container {
   margin-top: 20px;
   padding-left: 16px;

@@ -26,7 +26,7 @@
         <label for="repeat-password">Подтверждение пароля</label>
         <field name="repeat-password" id="repeat-password" type="password" />
       </div>
-      <button>Получить полный доступ</button>
+      <button class="btn">Получить полный доступ</button>
     </validation-form>
   </div>
 </template>
@@ -90,10 +90,5 @@ export default {
 
 .input-block label {
   font-size: 12px;
-}
-
-button {
-  padding-top: 5px;
-  padding-bottom: 5px;
 }
 </style>
