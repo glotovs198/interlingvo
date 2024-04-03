@@ -26,6 +26,8 @@ export default {
   justify-content: center;
   background: #bccbd5;
   overflow-y: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .container {

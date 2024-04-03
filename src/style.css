@@ -9,16 +9,21 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+body.scroll-lock {
+  height: 100vh;
+  overflow: hidden;
+}
+
 
 a {
   text-decoration: none;
   color: black;
-  font-size: 12px;
+  font-size: 14px;
   -webkit-tap-highlight-color: transparent;
 }
 
 p {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -43,4 +48,12 @@ li {
 button {
   margin: 0;
   padding: 0;
+}
+
+input {
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }

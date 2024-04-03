@@ -2,40 +2,38 @@
   <main-layout>
     <div class="container">
       <h1 class="blue-title">Последние анкеты</h1>
-      <div class="cards">
-        <transition-group name="card" tag="div" appear>
-          <div
-            class="card"
-            v-for="card in cards"
-            :key="card.id"
-            @click="goToDetails(card.id)"
-          >
-            <div class="card-content">
-              <img :src="card.images[0].url" :alt="card.name" />
-            </div>
-            <div class="card-info">
-              <div class="card-info-body">
-                <h3 class="card-title">
-                  <span> {{ card.name }} </span>
-                  {{ card.age }} {{ getCorrectTextAge(card.age) }}
-                </h3>
-                <div class="card-actions">
-                  <button @click.stop="dislikeCard(card.id)" class="button">
-                    <img src="../assets/dislike.svg" alt="dislike" />
-                  </button>
-                  <button
-                    @click.stop="() => console.log('message')"
-                    class="button"
-                  >
-                    <img src="../assets/message.svg" alt="message" />
-                  </button>
-                </div>
-              </div>
-              <p>{{ card.country }}</p>
-            </div>
+      <transition-group class="cards" name="card" tag="div" appear>
+        <div
+          class="card"
+          v-for="card in cards"
+          :key="card.id"
+          @click="goToDetails(card.id)"
+        >
+          <div class="card-content">
+            <img :src="card.images[0].url" :alt="card.name" />
           </div>
-        </transition-group>
-      </div>
+          <div class="card-info">
+            <div class="card-info-body">
+              <h3 class="card-title">
+                <span> {{ card.name }} </span>
+                {{ card.age }} {{ getCorrectTextAge(card.age) }}
+              </h3>
+              <div class="card-actions">
+                <button @click.stop="dislikeCard(card.id)" class="button">
+                  <img src="../assets/dislike.svg" alt="dislike" />
+                </button>
+                <button
+                  @click.stop="() => console.log('message')"
+                  class="button"
+                >
+                  <img src="../assets/message.svg" alt="message" />
+                </button>
+              </div>
+            </div>
+            <p>{{ card.country }}</p>
+          </div>
+        </div>
+      </transition-group>
     </div>
   </main-layout>
 </template>
@@ -205,7 +203,8 @@ export default {
 .cards {
   padding-bottom: 20px;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: baseline;
   gap: 20px;
   position: relative;
 }
@@ -216,6 +215,7 @@ export default {
 
 .card-content img {
   width: 100%;
+  height: 200px;
   object-fit: cover;
   background: lightgray;
 }
@@ -227,7 +227,9 @@ export default {
 .card-info-body {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 10px;
 }
 
 .card-actions {
@@ -239,5 +241,19 @@ export default {
 .card-title span {
   color: #1b75bb;
   text-decoration: underline;
+}
+
+@media (max-width: 570px) {
+  .cards {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card img {
+    height: auto;
+  }
 }
 </style>

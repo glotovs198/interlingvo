@@ -91,4 +91,9 @@ export default {
 .input-block label {
   font-size: 12px;
 }
+
+button {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
 </style>
